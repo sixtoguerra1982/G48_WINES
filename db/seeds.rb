@@ -17,3 +17,54 @@
     # wine_id
     # Strain_id  .intransitiva que son 2 modelos y 3 tablas
     # percentage .transitiva que son 3 modelos y 3 tablas
+
+100.times do |i|
+    Wine.create!(name: "Vino #{i+1}")
+    puts "Vino #{i+1}"
+end
+
+100.times do |i|
+    Strain.create!(name: "Cepa #{i+1}")
+    puts "Cepa #{i+1}"
+end
+
+#Enologo
+ # Nombre
+ # Edad
+ # Nacionalidad
+
+#Enologos_Wines
+ #id_enologo
+ #id_wine
+ #Nota
+
+# Wines
+    # Name String
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,10 @@
 <nav>
     <%= link_to "Cepas" , strains_path %>
 </nav>
+
+<% @wines.each do |wine| %>
+    <p><%= wine.name %></p>
+    <%  wine.wines_strains.each_with_index do |wine_strain, index| %>
+        <p>Cepa <%= "#{index + 1} : #{wine_strain.strain.name}"%> </p>
+    <% end %>
+<% end %>
