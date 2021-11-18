@@ -21,7 +21,7 @@ class WinesController < ApplicationController
 
   # POST /wines or /wines.json
   def create
-    byebug
+    # byebug
     @wine = Wine.new(wine_params)
 
     respond_to do |format|
