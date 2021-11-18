@@ -5,6 +5,6 @@
 <% @wines.each do |wine| %>
     <p><%= wine.name %></p>
     <%  wine.wines_strains.each_with_index do |wine_strain, index| %>
-        <p>Cepa <%= "#{index + 1} : #{wine_strain.strain.name}"%> </p>
+        <p>Cepa <%= "#{index + 1} : #{wine_strain.strain.name} | #{wine_strain.porcentage}" %> </p>
     <% end %>
 <% end %>

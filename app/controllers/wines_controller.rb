@@ -21,6 +21,7 @@ class WinesController < ApplicationController
 
   # POST /wines or /wines.json
   def create
+    byebug
     @wine = Wine.new(wine_params)
 
     respond_to do |format|
@@ -64,6 +65,7 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name)
+      # params.require(:wine).permit(:name)
+      params.require(:wine).permit(:name, wines_strains_attributes: [:id, :strain_id, :porcentage, :_destroy])
     end
 end

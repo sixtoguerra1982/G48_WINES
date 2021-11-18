@@ -1,0 +1,7 @@
+<div class="nested-fields form-inline">
+    <%= f.select :strain_id, strains_for_select, {}, class: 'custom-select mx-sm-3 mb-2' %>
+    <div class="form-group mr-sm-3 mb-2">
+        <%= f.label :porcentage, '%' %>
+        <%= f.text_field :porcentage, class: 'form-control mr-sm-3' %>
+    </div>
+</div>
