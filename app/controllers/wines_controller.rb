@@ -1,6 +1,6 @@
 class WinesController < ApplicationController
   before_action :set_wine, only: %i[ show edit update destroy ]
-
+  before_action :check_role
   # GET /wines or /wines.json
   def index
     @wines = Wine.all
@@ -58,6 +58,11 @@ class WinesController < ApplicationController
   end
 
   private
+    def check_role
+      if current_user.role != "Admin"
+         redirect_to root_path, notice: "Acceso no Autorizado"
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_wine
       @wine = Wine.find(params[:id])

@@ -1,6 +1,6 @@
 class StrainsController < ApplicationController
   before_action :set_strain, only: %i[ show edit update destroy ]
-
+  before_action :check_role
   # GET /strains or /strains.json
   def index
     @strains = Strain.all
@@ -57,6 +57,11 @@ class StrainsController < ApplicationController
   end
 
   private
+    def check_role
+      if current_user.role != "Admin"
+        redirect_to root_path, notice: "Acceso no Autorizado"
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_strain
       @strain = Strain.find(params[:id])

@@ -18,6 +18,7 @@
     # Strain_id  .intransitiva que son 2 modelos y 3 tablas
     # percentage .transitiva que son 3 modelos y 3 tablas
 
+Wine.all.destroy_all
 100.times do |i|
     Wine.create!(name: "Vino #{i+1}")
     puts "Vino #{i+1}"
