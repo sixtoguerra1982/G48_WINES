@@ -1,0 +1,6 @@
+<nav class="mt-3 d-flex justify-content-center align-items-center">
+  <%= link_to "Home" , root_path, class: "btn btn-success" %>|
+  <%= link_to "Cepas" , strains_path, class: "btn btn-success" %>|
+  <%= link_to "Wines" , wines_path, class: "btn btn-success" %>|
+  <%= link_to "Cerrar Sesion",destroy_user_session_path, method: :delete, class: "btn btn-success" if user_signed_in? %> 
+</nav>
