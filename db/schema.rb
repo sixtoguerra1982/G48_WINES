@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_005026) do
+ActiveRecord::Schema.define(version: 2021_11_24_232310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "oenologists", force: :cascade do |t|
+    t.integer "age"
+    t.string "name"
+    t.string "nation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "strains", force: :cascade do |t|
     t.string "name"
@@ -40,6 +48,16 @@ ActiveRecord::Schema.define(version: 2021_11_23_005026) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wines_oenologists", force: :cascade do |t|
+    t.bigint "wine_id"
+    t.bigint "oenologist_id"
+    t.integer "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["oenologist_id"], name: "index_wines_oenologists_on_oenologist_id"
+    t.index ["wine_id"], name: "index_wines_oenologists_on_wine_id"
+  end
+
   create_table "wines_strains", force: :cascade do |t|
     t.bigint "wine_id"
     t.bigint "strain_id"
@@ -50,6 +68,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_005026) do
     t.index ["wine_id"], name: "index_wines_strains_on_wine_id"
   end
 
+  add_foreign_key "wines_oenologists", "oenologists"
+  add_foreign_key "wines_oenologists", "wines"
   add_foreign_key "wines_strains", "strains"
   add_foreign_key "wines_strains", "wines"
 end

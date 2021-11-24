@@ -69,3 +69,5 @@ gem 'cocoon'
 
 # 22-11-2021
 gem 'devise'
+# 24-11-2021
+gem 'rails-erd', group: :development

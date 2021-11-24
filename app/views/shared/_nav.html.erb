@@ -2,8 +2,10 @@
   <%= link_to "Home" , root_path, class: "btn btn-success" %>|
   <%= link_to "Cepas" , strains_path, class: "btn btn-success" %>|
   <%= link_to "Wines" , wines_path, class: "btn btn-success" %>|
-  <%= link_to "Cerrar Sesion",destroy_user_session_path, method: :delete, class: "btn btn-success" if user_signed_in? %>
+  <%= link_to "Cerrar Sesion",destroy_user_session_path, method: :delete, class: "btn btn-warning" if user_signed_in? %>
   <div class="ml-5">
-    <span class="badge badge-primary"><%= "#{current_user.email} -> #{current_user.role}" %></span>
+    <% if signed_in? %>
+      <span class="badge badge-info"><%= "#{current_user.email} -> #{current_user.role}" %></span>
+    <% end %>
   </div>
 </nav>
